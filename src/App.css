@@ -1,6 +1,6 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 900px;
+    margin-inline: auto;
     padding: 1rem;
     font-family: Arial, sans-serif;
   }
@@ -12,7 +12,7 @@
   }
   
   button {
-    background-color: #4caf50;
+    background-color: #00a2ff;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -20,10 +20,7 @@
     margin-bottom: 1rem;
     cursor: pointer;
   }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
+
   
   .addform {
     display: flex;
@@ -32,6 +29,16 @@
     border-radius: 0.25rem;
     padding: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .addform div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .addform label{
+    width: 70px;
   }
   
   label {
@@ -127,6 +134,7 @@
   .sidebar {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
   }
   
   .edit-btn, .delete-btn {
@@ -140,7 +148,21 @@
     color: #fff;
   }
   
-  .edit-btn:hover, .delete-btn:hover {
+  .edit-btn:hover {
     background-color: #0062cc;
   }
+  .delete-btn:hover{
+    background-color: red;
+  }
+
   
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  td{
+    padding: 10px;
+  }

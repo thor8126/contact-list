@@ -97,7 +97,7 @@ function Contacts() {
             <h1>Contact List</h1>
             <button onClick={handleAddContact}>Add Contact</button>
             {showAddForm && (
-                <form className='addform' onSubmit={handleAddFormSubmit}>
+                <form style={{color:'white' }} className='addform modal' onSubmit={handleAddFormSubmit}>
                     <div>
                         <label>Name:</label>
                         <input type="text" name="name" value={newContact.name} onChange={handleInputChange} />
@@ -118,44 +118,57 @@ function Contacts() {
                     <button type="submit">Save</button>
                 </form>
             )}
-            <ul className='btns'>
-                {contacts.map(contact => (
-                    <li key={contact.id} className='btns-list'>
-                        <div>{contact.name}</div>
-                        <div>{contact.email}</div>
-                        <div>{contact.phone}</div>
-                        <div>{contact.website}</div>
-                        <div className='sidebar'>
-                            <button className='edit-btn' onClick={() => handleEditContact(contact)}>Edit</button>
-                            <button className='delete-btn' onClick={() => handleDeleteContact(contact)}>Delete</button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Website</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {contacts.map(contact => (
+                        <tr key={contact.id}>
+                            <td>{contact.name}</td>
+                            <td>{contact.email}</td>
+                            <td>{contact.phone}</td>
+                            <td>{contact.website}</td>
+                            <td className='sidebar'>
+                                <button className='edit-btn' onClick={() => handleEditContact(contact)}>Edit</button>
+                                <button className='delete-btn' onClick={() => handleDeleteContact(contact)}>Delete</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
             {editContact && (
-                <form className='edit-form' onSubmit={handleEditFormSubmit}>
-                    <div>
-                        <label>Name:</label>
-                        <input type="text" name="name" value={editContact.name} onChange={handleEditInputChange} />
-                    </div>
-                    <div>
-                        <label>Email:</label>
-                        <input type="email" name="email" value={editContact.email} onChange={handleEditInputChange} />
-                    </div>
-                    <div>
-                        <label>Phone:</label>
-                        <input type="tel" name="phone" value={editContact.phone} onChange={handleEditInputChange} />
-                    </div>
-                    <div>
-                        <label>Website:</label>
-                        <input type="text" name="website" value={editContact.website} onChange={handleEditInputChange} />
-                    </div>
-                    <button type="submit">Save</button>
-                </form>
+                <div className="modal">
+                    <form className='edit-form' onSubmit={handleEditFormSubmit}>
+                        <div>
+                            <label>Name:</label>
+                            <input type="text" name="name" value={editContact.name} onChange={handleEditInputChange} />
+                        </div>
+                        <div>
+                            <label>Email:</label>
+                            <input type="email" name="email" value={editContact.email} onChange={handleEditInputChange} />
+                        </div>
+                        <div>
+                            <label>Phone:</label>
+                            <input type="tel" name="phone" value={editContact.phone} onChange={handleEditInputChange} />
+                        </div>
+                        <div>
+                            <label>Website:</label>
+                            <input type="text" name="website" value={editContact.website} onChange={handleEditInputChange} />
+                        </div>
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
             )}
             {showDeleteConfirmation && (
                 <div className='modal'>
-                    <p>Are you sure you want to delete {deleteContact.name}?</p>
+                    <p style={{ color: 'white' }}>Are you sure you want to delete {deleteContact.name}?</p>
                     <button onClick={handleDeleteConfirmation}>Yes</button>
                     <button onClick={handleDeleteCancel}>No</button>
                 </div>
