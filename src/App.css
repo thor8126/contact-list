@@ -29,6 +29,11 @@
     border-radius: 0.25rem;
     padding: 1rem;
     margin-bottom: 1rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .addform div{
@@ -79,6 +84,10 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
+  }
+
+  .edit-form div label{
+    width: 100px;
   }
   
   .modal {
@@ -165,4 +174,17 @@
 
   td{
     padding: 10px;
+  }
+
+
+  .close-btn{
+    background: transparent!important;
+    margin-right: -240px!important;
+  }
+
+  .close-btn2{
+    position: absolute;
+    right: 0px;
+    font-size: 1rem;
+    background: transparent!important;
   }

@@ -97,7 +97,10 @@ function Contacts() {
             <h1>Contact List</h1>
             <button onClick={handleAddContact}>Add Contact</button>
             {showAddForm && (
-                <form style={{color:'white' }} className='addform modal' onSubmit={handleAddFormSubmit}>
+                <>
+                <div className="modal">
+                <form style={{color:'white' }} className='addform' onSubmit={handleAddFormSubmit}>
+                    <button className="close-btn" onClick={() => setShowAddForm(false)}>Close</button>
                     <div>
                         <label>Name:</label>
                         <input type="text" name="name" value={newContact.name} onChange={handleInputChange} />
@@ -117,6 +120,8 @@ function Contacts() {
                     </div>
                     <button type="submit">Save</button>
                 </form>
+                </div>
+                </>
             )}
             <table>
                 <thead>
@@ -146,6 +151,8 @@ function Contacts() {
             {editContact && (
                 <div className="modal">
                     <form className='edit-form' onSubmit={handleEditFormSubmit}>
+                        <button style={{color:'black'}} className="close-btn2" onClick={() => setEditContact(null)}>Close</button>
+                        <br /><br />
                         <div>
                             <label>Name:</label>
                             <input type="text" name="name" value={editContact.name} onChange={handleEditInputChange} />
